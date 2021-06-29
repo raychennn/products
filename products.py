@@ -6,11 +6,15 @@ while True:
 		break
 	price = input('請輸入商品價格：')
 	p = []
-	p.append(name)
+	p.append(name) #分類價格和商品
 	p.append(price)
-	products.append(p)
+	products.append(p)#二維清單
 print(products)
 
 for p in products:
 	print(p[0],'的價格是：',p[1])
-
+#p[0]:all products, p[1]:all price
+with open ('products.csv','w') as f:
+	for p in products:
+		f.write(p[0] + ',' + p[1] + '\n' )
+#寫入csc檔，＋號連接字串，\n換行
