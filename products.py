@@ -1,3 +1,13 @@
+#讀取檔案
+products = []
+with open('products.csv','r',encoding = 'utf-8') as f:
+	for line in f:
+		if '商品,價格' in line:
+			continue #回去上一段繼續，通常寫在高位，一開始就略過
+		name,price = line.strip().split(',')
+		products.append([name, price])
+	print(products)
+
 #不知道輸入幾次用while，反之用for
 products = []
 while True:
@@ -20,13 +30,5 @@ with open ('products.csv','w',
 	for p in products:
 		f.write(p[0] + ',' + p[1] + '\n' )
 #寫入csc檔，＋號連接字串，encoding = utf-8中文字，\n換行
-#讀取檔案p
-products = []
-with open('products.csv','r',encoding = 'utf-8') as f:
-	for line in f:
-		if '商品,價格' in line:
-			continue #回去上一段繼續，通常寫在高位，一開始就略過
-		name,price = line.strip().split(',')
-		products.append([name, price])
-	print(products)
+
 
